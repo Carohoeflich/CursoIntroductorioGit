@@ -12,11 +12,22 @@
     hola();*/
 
 
-//otra funcion que no es anonima, pero se le hace un llamado    
-
-function saludo(nombre){
+//THIS ONE DIDNT FUCKING WORK BTW  
+/*function saludo(nombre){
     return console.log("Hola: " + saludo);
 }
 
 nombre = "Carolina";
-saludo(nombre);
+saludo(nombre);*/
+
+
+//more funciones anonimas
+var hola = function(){
+    console.log("Hola mundo anonima")
+};
+hola();
+
+var anonima = function(){
+    console.log("Nuevo mensaje anonimo")
+};
+anonima();
