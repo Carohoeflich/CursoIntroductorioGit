@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+
+        function externalFunction(outerVariable){  //the external function is the only function you can access to, when there is a closure aka another function inside
+            const outer2 = 'Hi' //a const or let done inside a function makes it so you can only use it INSIDE said function, cant access it outside of it
+            return function innerFunction(innerVariable){ //you use return to make another function inside which cant be accessed and only does its thing for the external function
+                console.log('external variable: ' + outerVariable)
+                console.log('inner variable: ' + innerVariable)
+                console.log(outer2) // this is the only way to use the const inside the function
+            }
+        }
+
+        const newFunction = externalFunction('This is the external function') //you need a new const to be able to call that external function, parentesis are for the outervariable
+        newFunction('This is the inner function'); //you call the const you made 
+
+    </script>
+</body>
+</html>
