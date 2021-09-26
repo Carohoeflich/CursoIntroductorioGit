@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Asincronismo Tercer Reto</title>
+</head>
+<body>
+    <script>
+
+
+        //datos con tiempo
+        function UnSegundo (){
+           return new Promise(resolve => {
+               setTimeout(() => {
+               resolve('A');
+                }, 1000);
+        });
+        }
+
+        function DosSegundos(){
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('B');
+                }, 2000);
+            });        
+        }
+
+        function TresSegundos(){
+            return new Promise(resolve => {
+                setTimeout(() => {
+                    resolve('C');
+                }, 3000);
+            });
+        }
+
+
+        // se hacen funciones async para poder usar el await, usando las funciones de datos de mas arriba
+        async function asyncCallPrimero(){
+            const result = await TresSegundos(); //const para usar el await 
+            console.log(result);
+        } 
+
+        async function asyncCallSegundo(){
+            const result = await DosSegundos();
+            console.log(result);
+        }
+
+        async function asyncCallTercero(){
+            const result = await UnSegundo();
+            console.log(result);
+        }
+
+        //y ahora sin importar el orden escriban, siempre llegaran al tiempo que se les dio.
+        asyncCallTercero();
+        asyncCallSegundo();
+        asyncCallPrimero();
+    </script>
+</body>
+</html>
