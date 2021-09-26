@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Event Objects</title>
+</head>
+<body>
+    <h1>Usa W,A,S,D</h1>
+<p></p>
+
+<script>
+    // Pass an event through to a listener
+document.addEventListener('keydown', event => {
+    var element = document.querySelector('p');
+// Set variables for keydown codes
+    var a = 'KeyA';
+    var s = 'KeyS';
+    var d = 'KeyD';
+    var w = 'KeyW';
+// Set a direction for each code
+    switch (event.code) {
+        case a:
+            element.textContent = 'izquierda';
+            break;
+        case s:
+            element.textContent = 'abajo';
+            break;
+        case d:
+            element.textContent = 'derecha';
+            break;
+        case w:
+            element.textContent = 'arriba';
+            break;
+    }
+});
+</script>
+</body>
+</html>
