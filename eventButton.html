@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Understanding Events</title>
+</head>
+<body>
+<button>Click me</button>
+<p>Change me!</p>
+
+<script>
+
+    const changeText = () => {
+        const p = document.querySelector('p');
+        p.textContent = "Cambie de Texto";
+    }
+
+    const button = document.querySelector('button');
+    button.addEventListener('click', changeText);
+</script>
+
+</body>
+</html>
