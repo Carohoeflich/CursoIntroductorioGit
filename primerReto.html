@@ -1,0 +1,31 @@
+<!DOCTYPE>
+<html>
+<head>
+  <meta charset="UTF-8">
+<title>asincronismo reto 1</title>
+ 
+<script type="text/javascript">
+
+/*
+Realiza un programa donde la priecmera función dlarada sea la última en imprimirse, la segunda función la primera y la tercera se imprima después de la segunda 
+*/
+
+
+const myCallbackFirst = () => console.log("Primera función!");
+const myCallbackSecond = Promise.resolve("Segunda función!"); //se puede crear un promise dentro de una const, el resolve contiene los datos
+const myCallbackThird = () => console.log("Tercera función!");
+setTimeout(myCallbackFirst,15); //simplemente le puse mas tiempo para que sea la ultima en imprimir
+
+myCallbackSecond.then((datos) => { //se una la const donde quieres usar el promise usas el .then con una variable con cualquier nombre, en este caso datos
+  console.log(datos); //se hace el console log de los datos, que llama al resolve de la promise y asi es como, es lo primero que imprime
+});
+setTimeout(myCallbackThird, 10);
+
+
+</script>
+</head>
+ 
+<body>
+<p>Esta página contiene el uso de asincronismo</p>
+</body>
+</html>
