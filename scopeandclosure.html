@@ -21,6 +21,21 @@
         const newFunction = externalFunction('This is the external function') //you need a new const to be able to call that external function, parentesis are for the outervariable
         newFunction('This is the inner function'); //you call the const you made 
 
+
+            // another example of a function inside of a function
+        function outerFunction(url){
+            fetch(url).then(() => {
+                console.log(url)
+            })
+        }
+
+        const otherFunction = outerFunction('outside')
+        otherFunction('inside')
+
+
+        //When you have a function defined inside of another function, that inner function has access to the variables and scope to the outer function even if the
+        // outer function finishes executing and those variables are no longer accessable outside that function.
+
     </script>
 </body>
 </html>
